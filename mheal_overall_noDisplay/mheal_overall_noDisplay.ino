@@ -5,7 +5,7 @@
 #include <DallasTemperature.h>
 
 //Data wire is plugged into port EDIT CURRENTLY 2 on Arduino
-#define ONE_WIRE_BUS 2
+#define ONE_WIRE_BUS 12
 
 //Temperature rigamarole
 OneWire oneWire(ONE_WIRE_BUS);
