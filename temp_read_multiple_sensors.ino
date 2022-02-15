@@ -4,7 +4,7 @@
 #include <SD.h>
 
 #define TEMP_PIN1 2
-#define TEMP_PIN2 //insert pin number
+#define TEMP_PIN2 3//insert pin number
 
 //For SD card
 File myFile;
@@ -52,14 +52,18 @@ void sensorRead(){
   mattressTemp2 = sensor2.getTempCByIndex(0);
 
   //Print to Serial Monitor
-  Serial.println(mattressTemp1, " ", mattressTemp2);
+  Serial.print(mattressTemp1);
+  Serial.print(" ");
+  Serial.println(mattressTemp2);
   
   //Store to SD card
   myFile = SD.open("72V-multiple-sensorsn.txt", FILE_WRITE);
   myFile.seek(EOF);
   myFile.print(millis());
   myFile.print(" ");
-  myFile.println(mattressTemp1, " ", mattressTemp2);
+  myFile.print(mattressTemp1);
+  myFile.print(" ");
+  myFile.println(mattressTemp2);
   myFile.close();
 
   delay(500); //500 ms
